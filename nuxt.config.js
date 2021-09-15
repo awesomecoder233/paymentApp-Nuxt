@@ -40,7 +40,9 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    '@/assets/main.css'
+  ],
   serverMiddleware: [{ path: '/verify', handler: '~/api/user.js' }],
   /*
    ** Plugins to load before mounting the App

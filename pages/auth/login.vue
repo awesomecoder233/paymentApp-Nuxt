@@ -1,13 +1,12 @@
 <template>
   <div>
-    <v-form
+    <v-form class="user-form"
       @submit.prevent="userLogin"
-      style="max-width: 500px; margin-top: 10%;"
     >
       <div>
         <h3>User Authentication Information</h3>
       </div>
-      <div>
+      <div class="form-area">
         <label>Username</label>
         <v-text-field type="text" v-model="login.username" id="username" />
       </div>
@@ -16,12 +15,11 @@
         <v-text-field type="password" v-model="login.password" id="password" />
       </div>
       <div>
-        <v-btn type="submit">Login</v-btn>
+        <v-btn type="submit" class="form-button">Login</v-btn>
       </div>
     </v-form>
   </div>
 </template>
-<script src="./user.js" type="javascript"></script>
 <script>
 export default {
   data() {
