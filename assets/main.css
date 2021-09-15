@@ -1,7 +1,17 @@
 .user-form {
     max-width: 500px; 
     margin: 40px auto;
+    border:solid rgb(194, 189, 189) 1px;
+    padding: 20px;
+    border-radius: 10px;
 }
 .form-area {
     margin-top: 20px;
+}
+.text-title {
+    color: rgb(91, 30, 233);
+    text-align: center;
+}
+.form-button {
+    width: 100%;
 }

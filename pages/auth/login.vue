@@ -4,7 +4,7 @@
       @submit.prevent="userLogin"
     >
       <div>
-        <h3>User Authentication Information</h3>
+        <h3 class="text-title">User Authentication Information</h3>
       </div>
       <div class="form-area">
         <label>Username</label>
