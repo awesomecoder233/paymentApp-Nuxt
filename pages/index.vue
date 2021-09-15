@@ -21,9 +21,7 @@
     </v-form>
   </div>
 </template>
-<script src="./user.js" type="javascript"></script>
 <script>
-
 export default {
   
   data() {
