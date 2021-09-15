@@ -165,7 +165,10 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar clipped-left fixed app dark color="primary" dense>
-      <v-app-bar-nav-icon @click.stop="showDrawer = !showDrawer" />
+      <v-app-bar-nav-icon
+        v-if="item == true"
+        @click.stop="showDrawer = !showDrawer"
+      />
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <v-btn icon @click.stop="showRightDrawer = !showRightDrawer">
@@ -596,6 +599,7 @@ export default class DefaultLayoutsClass extends Vue {
   right = true
   showRightDrawer = false
   showDrawer = false
+  item = localStorage.getItem('username') == undefined ? false : true
 
   get title() {
     const navItems = this.flowLinks.concat(this.paymentsLinks)

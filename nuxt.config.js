@@ -11,6 +11,11 @@ export default {
     host: '0.0.0.0',
     port: 3011,
   },
+
+  loading: {
+    color: 'blue',
+    height: '5px',
+  },
   /*
    ** Headers of the page
    */
@@ -31,14 +36,12 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  // loading: { color: '#fff' },
   /*
    ** Global CSS
    */
   css: [],
-  serverMiddleware: [
-    { path: '/verify', handler: '~/api/user.js' },
-  ],
+  serverMiddleware: [{ path: '/verify', handler: '~/api/user.js' }],
   /*
    ** Plugins to load before mounting the App
    */
@@ -91,6 +94,10 @@ export default {
       },
     },
   },
+  // router: {
+  //   middleware: ['auth'],
+  // },
+
   auth: {
     strategies: {
       local: {
@@ -114,27 +121,27 @@ export default {
             url: 'api/auth/logout',
             method: 'post',
           },
-          user: {
-            url: 'api/auth/user',
-            method: 'get',
-          },
-          tokenRequired: false,
+          // home: {
+          //   url: 'api/auth/user',
+          //   method: 'get',
+          // },
+          tokenRequired: true,
         },
       },
     },
     redirect: {
       login: '/auth/login',
-      logout: '/',
-      callback: '/auth/login',
-      home: '/',
+      logout: 'auth/logout',
+      // callback: '/auth/login',
+      home: '/home',
     },
   },
 
   axios: {
-    baseURL: 'localhost/api/test',
+    baseURL: 'https://127.0.0.1:5000',
     browserBaseURL: '/',
   },
-  
+
   /*
    ** Build configuration
    */
