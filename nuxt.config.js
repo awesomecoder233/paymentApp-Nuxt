@@ -5,7 +5,7 @@ require('dotenv').config()
 export default {
   mode: 'spa',
   build: {
-    extend(config, ctx) {} // blah blah
+    extend(config, ctx) {}, // blah blah
   },
   server: {
     host: '0.0.0.0',
@@ -36,10 +36,14 @@ export default {
    ** Global CSS
    */
   css: [],
+  serverMiddleware: [
+    { path: '/verify', handler: '~/api/user.js' },
+  ],
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
+    { src: '@/plugins/axios', mode: 'server' },
     '~/plugins/paymentsApi',
     '~/plugins/cardsApi',
     '~/plugins/marketplaceApi',
@@ -66,7 +70,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: ['@nuxtjs/axios', '@nuxtjs/auth', '@nuxtjs/auth-next'],
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
@@ -87,6 +91,50 @@ export default {
       },
     },
   },
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: 'token',
+          global: true,
+          required: true,
+          type: 'Bearer',
+        },
+        user: {
+          property: 'user',
+          autoFetch: true,
+        },
+        endpoints: {
+          login: {
+            url: '/api/test',
+            method: 'post',
+            propertyName: 'token',
+          },
+          logout: {
+            url: 'api/auth/logout',
+            method: 'post',
+          },
+          user: {
+            url: 'api/auth/user',
+            method: 'get',
+          },
+          tokenRequired: false,
+        },
+      },
+    },
+    redirect: {
+      login: '/auth/login',
+      logout: '/',
+      callback: '/auth/login',
+      home: '/',
+    },
+  },
+
+  axios: {
+    baseURL: 'localhost/api/test',
+    browserBaseURL: '/',
+  },
+  
   /*
    ** Build configuration
    */
