@@ -123,10 +123,6 @@ export default {
             url: 'api/auth/logout',
             method: 'post',
           },
-          // home: {
-          //   url: 'api/auth/user',
-          //   method: 'get',
-          // },
           tokenRequired: true,
         },
       },
