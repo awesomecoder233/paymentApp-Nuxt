@@ -48,7 +48,6 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: '@/plugins/axios', mode: 'server' },
     '~/plugins/paymentsApi',
     '~/plugins/cardsApi',
     '~/plugins/marketplaceApi',
@@ -96,10 +95,6 @@ export default {
       },
     },
   },
-  // router: {
-  //   middleware: ['auth'],
-  // },
-
   auth: {
     strategies: {
       local: {
